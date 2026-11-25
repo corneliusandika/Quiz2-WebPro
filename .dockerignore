@@ -1,0 +1,12 @@
+target/
+build/
+backups/
+report/
+*.war
+*.zip
+.git
+.env
+.idea
+.vscode
+node_modules
+tools/

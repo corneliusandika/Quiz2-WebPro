@@ -1,0 +1,12 @@
+{
+  "name": "dompetku-report-tools",
+  "private": true,
+  "description": "Screenshot and PDF generation for the Dompetku Exam 2 report",
+  "scripts": {
+    "screenshots": "node capture_screenshots.js",
+    "report": "node render_report.js"
+  },
+  "dependencies": {
+    "puppeteer-core": "23.11.1"
+  }
+}

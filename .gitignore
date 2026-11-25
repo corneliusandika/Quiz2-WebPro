@@ -1,0 +1,8 @@
+build/
+target/
+.env
+backups/*.sql
+backups/*.zip
+tools/node_modules/
+report/_preview/
+*.log

@@ -1,0 +1,22 @@
+        </main>
+    </div>
+</div>
+
+<dialog class="confirm-modal" id="confirmModal" aria-labelledby="confirmTitle" aria-describedby="confirmMessage" closedby="any">
+    <div class="confirm-card">
+        <span class="confirm-icon"><ui:icon name="alert"/></span>
+        <h2 id="confirmTitle">Konfirmasi tindakan</h2>
+        <p id="confirmMessage">Apakah Anda yakin?</p>
+        <div class="confirm-actions">
+            <button type="button" class="btn btn-ghost" data-confirm-cancel autofocus>Batal</button>
+            <button type="button" class="btn btn-danger" id="confirmAccept">Ya, lanjutkan</button>
+        </div>
+    </div>
+</dialog>
+
+<c:if test="${needsCharts}">
+    <script src="${ctx}/assets/js/chart.umd.min.js?v=20261119-4"></script>
+</c:if>
+<script src="${ctx}/assets/js/app.js?v=20261119-29"></script>
+</body>
+</html>

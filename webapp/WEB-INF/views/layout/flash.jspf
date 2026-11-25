@@ -1,0 +1,20 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://dompetku.app/functions" %>
+<%@ taglib prefix="ui" tagdir="/WEB-INF/tags" %>
+<c:if test="${not empty sessionScope.flashMessage}">
+    <div class="toast toast-${sessionScope.flashType}" role="status" id="flashToast">
+        <span class="toast-icon">
+            <c:choose>
+                <c:when test="${sessionScope.flashType eq 'error'}"><ui:icon name="alert"/></c:when>
+                <c:otherwise><ui:icon name="check"/></c:otherwise>
+            </c:choose>
+        </span>
+        <span class="toast-text">${f:esc(sessionScope.flashMessage)}</span>
+        <span class="toast-progress" aria-hidden="true"></span>
+        <button type="button" class="toast-close" data-toast-close aria-label="Tutup">
+            <ui:icon name="x"/>
+        </button>
+    </div>
+    <c:remove var="flashMessage" scope="session"/>
+    <c:remove var="flashType" scope="session"/>
+</c:if>

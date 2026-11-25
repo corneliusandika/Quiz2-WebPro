@@ -1,0 +1,48 @@
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
+      MYSQL_DATABASE: dompetku
+    volumes:
+      - dompetku-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DOMPETKU_ENV: ${DOMPETKU_ENV:-development}
+      DOMPETKU_SEED_DEMO: "false"
+      DOMPETKU_DB_HOST: db
+      DOMPETKU_DB_PORT: "3306"
+      DOMPETKU_DB_NAME: dompetku
+      DOMPETKU_DB_USER: ${DOMPETKU_DB_USER:-root}
+      DOMPETKU_DB_PASSWORD: ${DOMPETKU_DB_PASSWORD:-${MYSQL_ROOT_PASSWORD}}
+      DOMPETKU_DB_CREATE_DATABASE: ${DOMPETKU_DB_CREATE_DATABASE:-true}
+      DOMPETKU_DB_SSL_MODE: ${DOMPETKU_DB_SSL_MODE:-DISABLED}
+      DOMPETKU_SECURE_COOKIES: ${DOMPETKU_SECURE_COOKIES:-false}
+      DOMPETKU_AUDIT_RETENTION_DAYS: ${DOMPETKU_AUDIT_RETENTION_DAYS:-365}
+      DOMPETKU_CURRENCY_DECIMALS: auto
+      DOMPETKU_PUBLIC_URL: ${DOMPETKU_PUBLIC_URL:-http://localhost:8080/dompetku}
+      DOMPETKU_SMTP_HOST: ${DOMPETKU_SMTP_HOST:-}
+      DOMPETKU_SMTP_PORT: ${DOMPETKU_SMTP_PORT:-587}
+      DOMPETKU_SMTP_USER: ${DOMPETKU_SMTP_USER:-}
+      DOMPETKU_SMTP_PASSWORD: ${DOMPETKU_SMTP_PASSWORD:-}
+      DOMPETKU_SMTP_FROM: ${DOMPETKU_SMTP_FROM:-}
+      DOMPETKU_SMTP_STARTTLS: ${DOMPETKU_SMTP_STARTTLS:-true}
+      DOMPETKU_SMTP_SSL: ${DOMPETKU_SMTP_SSL:-false}
+      DOMPETKU_REQUIRE_EMAIL_VERIFICATION: ${DOMPETKU_REQUIRE_EMAIL_VERIFICATION:-false}
+    ports:
+      - "8080:8080"
+
+volumes:
+  dompetku-db:

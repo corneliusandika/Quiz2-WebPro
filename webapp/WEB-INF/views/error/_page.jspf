@@ -1,0 +1,54 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="f" uri="http://dompetku.app/functions" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="text-scale" content="scale">
+    <title>${f:esc(errorTitle)} &middot; Dompetku</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="${ctx}/assets/img/favicon.svg">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; min-height: 100dvh; display: grid; place-items: center; color-scheme: dark;
+            background: radial-gradient(circle at 20% 20%, #12304a 0, transparent 40%),
+                        radial-gradient(circle at 80% 80%, #2b1c55 0, transparent 40%),
+                        #080e1a;
+            color: #e8eefc; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; padding: 24px;
+        }
+        .card {
+            width: min(520px, 100%); padding: 44px; border-radius: 28px; text-align: center;
+            background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+            box-shadow: 0 30px 80px rgba(0,0,0,.45); backdrop-filter: blur(18px);
+        }
+        .badge {
+            width: 72px; height: 72px; border-radius: 22px; display: grid; place-items: center;
+            margin: 0 auto 20px; font-size: 1.625rem; font-weight: 800; color: #071018;
+            background: linear-gradient(135deg, #5eead4, #38bdf8);
+        }
+        h1 { font-size: 2rem; margin: 0 0 10px; letter-spacing: -.03em; }
+        p { color: #9db0cd; line-height: 1.7; margin: 0 0 26px; }
+        a {
+            display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 14px;
+            background: linear-gradient(135deg, #34d399, #0ea5e9); color: #04121c;
+            text-decoration: none; font-weight: 700;
+        }
+        small { display: block; margin-top: 18px; color: #64748b; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="badge">${f:esc(errorCode)}</div>
+    <h1>${f:esc(errorTitle)}</h1>
+    <p>${f:esc(errorMessage)}</p>
+    <a href="${ctx}/app/dashboard">Kembali ke dashboard</a>
+    <small>Dompetku &middot; Personal Finance Workspace</small>
+</div>
+</body>
+</html>
