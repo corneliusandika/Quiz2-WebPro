@@ -1,4 +1,4 @@
-# Dompetku JSP
+# Dompetku
 
 Ini proyek Exam 2 Web Programming D. Dompetku sebelumnya saya buat dengan Laravel, lalu saya tulis ulang memakai JSP, Servlet, dan JDBC supaya bisa berjalan di Tomcat dengan MySQL.
 
