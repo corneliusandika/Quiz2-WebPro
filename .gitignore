@@ -4,5 +4,11 @@ target/
 backups/*.sql
 backups/*.zip
 tools/node_modules/
-report/_preview/
+report/
+tools/build_report_docx.py
+tools/capture_erd.js
+tools/capture_screenshots.js
+tools/render_report.js
+tools/package.json
+tools/package-lock.json
 *.log

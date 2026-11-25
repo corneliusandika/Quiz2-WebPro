@@ -2,7 +2,7 @@
 
 Ini proyek Exam 2 Web Programming D. Dompetku sebelumnya saya buat dengan Laravel, lalu saya tulis ulang memakai JSP, Servlet, dan JDBC supaya bisa berjalan di Tomcat dengan MySQL.
 
-Saya mempertahankan alur utama aplikasi: mencatat transaksi, memantau budget, menabung untuk target, dan melihat laporan. Versi ini sudah saya jalankan di lokal dan saya coba deploy ke Azure Web App.
+Saya mempertahankan alur utama aplikasi: mencatat transaksi, memantau budget, menabung untuk target, dan melihat laporan. Versi ini berjalan di lokal dan juga saya deploy ke Azure Web App.
 
 **Cornelius Andika** · 5025241123
 
@@ -131,7 +131,6 @@ webapp/WEB-INF/views/         halaman JSP
 webapp/WEB-INF/tags/          komponen ikon
 webapp/assets/                CSS, JS, Chart.js
 database/                     schema dan seed
-report/                       laporan dan screenshot
 ```
 
 ## Catatan pengerjaan
@@ -144,15 +143,3 @@ Beberapa bagian yang sempat saya perbaiki:
 - Export laporan membaca data per batch supaya tidak memuat seluruh transaksi sekaligus.
 - Logout diubah menjadi POST dengan CSRF, bukan link GET.
 
-## Laporan
-
-Laporan ada di `report/report.html`, `report/Dompetku-JSP-Report.pdf`, dan `report/screenshots/`.
-
-Untuk membuat ulang screenshot dan PDF, jalankan aplikasi di port 8080 lalu:
-
-```bat
-cd tools
-npm install
-npm run screenshots
-npm run report
-```
