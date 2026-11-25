@@ -1,9 +1,5 @@
 # Dompetku
 
-Ini proyek Exam 2 Web Programming D. Dompetku sebelumnya saya buat dengan Laravel, lalu saya tulis ulang memakai JSP, Servlet, dan JDBC supaya bisa berjalan di Tomcat dengan MySQL.
-
-Saya mempertahankan alur utama aplikasi: mencatat transaksi, memantau budget, menabung untuk target, dan melihat laporan. Versi ini berjalan di lokal dan juga saya deploy ke Azure Web App.
-
 **Cornelius Andika** · 5025241123
 
 ## Fitur
